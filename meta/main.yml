@@ -11,7 +11,7 @@ galaxy_info:
         - Precise
         - Trusty
   categories:
-    - system
+    - monitoring
 dependencies:
   - sivel.newrelic
   - franklinkim.php5
