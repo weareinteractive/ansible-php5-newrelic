@@ -1,0 +1,14 @@
+---
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
+# php5_newrelic:
+#   - { section: newrelic, option: appname, value: "My App" }
+#   - { section: newrelic, option: logfile, value: "/var/log/newrelic/php_agent.log" }
+#   - { section: newrelic, option: daemon.logfile, value: "/var/log/newrelic/newrelic-daemon.log" }
+#
+
+# ini config settings
+php5_newrelic:
+  - { section: newrelic, option: logfile, value: "/var/log/newrelic/php_agent.log" }
+  - { section: newrelic, option: daemon.logfile, value: "/var/log/newrelic/newrelic-daemon.log" }

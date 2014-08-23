@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: franklin
+  company: We Are Interactive
+  description: Installs New Relic PHP agent
+  min_ansible_version: 1.6
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+        - Precise
+        - Trusty
+  categories:
+    - system
+dependencies:
+  - sivel.newrelic
+  - franklinkim.php5
