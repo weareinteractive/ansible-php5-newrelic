@@ -8,7 +8,7 @@
 > * installs newrelic-php
 > * configures newrelic-php
 > 
-> Note: Tests are failing due to invalid license key
+> Note: Tests are failing due to invalid key
 
 ## Installation
 
