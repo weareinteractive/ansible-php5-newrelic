@@ -4,6 +4,7 @@
   apt: >
     pkg={{ item }}
     state=present
+  sudo: yes
   with_items:
     - newrelic-php5
   tags:

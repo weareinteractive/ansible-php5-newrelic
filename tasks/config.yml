@@ -7,6 +7,7 @@
     group: root
     owner: root
     mode: 0644
+  sudo: yes
   tags:
     - monitoring
     - newrelic-php5
@@ -20,6 +21,7 @@
     value={{ item.value }}
     state=present
   with_items: php5_newrelic
+  sudo: yes
   tags:
     - monitoring
     - newrelic-php5
