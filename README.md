@@ -1,13 +1,15 @@
 # Ansible Php5-newrelic Role
 
-[![Build Status](https://travis-ci.org/weareinteractive/ansible-php5-newrelic.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-php5-newrelic)
-[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-php5-newrelic.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-php5-newrelic)
+[![Build Status](https://img.shields.io/travis/weareinteractive/ansible-php5-newrelic.svg)](https://travis-ci.org/weareinteractive/ansible-php5-newrelic)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.php5-newrelic-blue.svg)](https://galaxy.ansible.com/list#/roles/1459)
+[![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-php5-newrelic.svg)](https://github.com/weareinteractive/ansible-php5-newrelic)
+[![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-php5-newrelic.svg)](https://github.com/weareinteractive/ansible-php5-newrelic)
 
-> `php5-newrelic` is an [ansible](http://www.ansible.com) role which: 
-> 
-> * installs newrelic-php
-> * configures newrelic-php
-> 
+> `php5-newrelic` is an [ansible](http://www.ansible.com) role which:
+>
+> * installs newrelic php agent
+> * configures newrelic php agent
+>
 > Note: Tests are failing due to invalid key
 
 ## Installation
@@ -18,47 +20,58 @@ Using `ansible-galaxy`:
 $ ansible-galaxy install franklinkim.php5-newrelic
 ```
 
-Using `arm` ([Ansible Role Manager](https://github.com/mirskytech/ansible-role-manager/)):
+Using `requirements.yml`:
 
 ```
-$ arm install franklinkim.php5-newrelic
+- src: franklinkim.php5-newrelic
 ```
 
 Using `git`:
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-php5-newrelic.git
+$ git clone https://github.com/weareinteractive/ansible-php5-newrelic.git franklinkim.php5-newrelic
 ```
+
+## Dependencies
+
+* Ansible >= 1.9
+* PHP (i.e. [franklinkim.php5](https://galaxy.ansible.com/list#/roles/1401))
+* Installed Newrelic server agent (i.e. [franklinkim.newrelic](https://galaxy.ansible.com/list#/roles/3917))
 
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
-# php5_newrelic:
-#   - { section: newrelic, option: appname, value: "My App" }
-#   - { section: newrelic, option: logfile, value: "/var/log/newrelic/php_agent.log" }
-#   - { section: newrelic, option: daemon.logfile, value: "/var/log/newrelic/newrelic-daemon.log" }
-#
+# newrelic_license_key: yourkey
 
-# ini config settings
-php5_newrelic:
-  - { section: newrelic, option: logfile, value: "/var/log/newrelic/php_agent.log" }
-  - { section: newrelic, option: daemon.logfile, value: "/var/log/newrelic/newrelic-daemon.log" }
+# Sets the name of the file to send log messages to.
+php5_newrelic_logfile: /var/log/newrelic/php_agent.log
+# Sets the level of detail to include in the log file.
+php5_newrelic_loglevel: info
+# Sets the name of the file to send daemon log messages to.
+php5_newrelic_daemon_logfile: /var/log/newrelic/newrelic-daemon.log
+# Sets the level of detail to include in the daemon log.
+php5_newrelic_daemon_loglevel: info
+# Enables high security for all applications.
+php5_newrelic_high_security: no
+# Sets the name of the application that metrics will be reported into.
+php5_newrelic_appname: myapp
 ```
 
 ## Example playbook
 
 ```
 - hosts: all
+  sudo: yes
   roles:
+    - franklinkim.apt
     - franklinkim.php5-newrelic
   vars:
+    apt_repositories:
+      - 'ppa:ondrej/php5-oldstable'
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
-    php5_newrelic:
-      - { section: newrelic, option: appname, value: "My App" }
-      - { section: newrelic, option: logfile, value: "/var/log/newrelic/php_agent.log" }
-      - { section: newrelic, option: daemon.logfile, value: "/var/log/newrelic/newrelic-daemon.log" }
+    php5_newrelic_appname: "My App"
 ```
 
 ## Testing
