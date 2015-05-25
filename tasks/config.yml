@@ -1,26 +1,11 @@
 ---
 
-- name: Copying config
+- name: Configuring module
   template:
-    src: etc-php5-mods-available-newrelic.ini.j2
-    dest: /etc/php5/mods-available/newrelic.ini
-    group: root
-    owner: root
-    mode: 0644
-  tags:
-    - monitoring
-    - newrelic-php5
-    - config
-
-- name: Configuring config
-  ini_file: >
-    dest=/etc/php5/mods-available/newrelic.ini
-    section={{ item.section|default('newrelic') }}
-    option={{ item.section|default('newrelic') }}.{{ item.option }}
-    value={{ item.value }}
-    state=present
-  with_items: php5_newrelic
-  tags:
-    - monitoring
-    - newrelic-php5
-    - config
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  with_items:
+    - "etc/php5/mods-available/newrelic.ini"

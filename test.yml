@@ -1,6 +1,7 @@
 ---
 
 - hosts: all
+  sudo: yes
   roles:
     - franklinkim.apt
     - franklinkim.php5-newrelic
@@ -8,7 +9,4 @@
     apt_repositories:
       - 'ppa:ondrej/php5-oldstable'
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
-    php5_newrelic:
-      - { section: newrelic, option: appname, value: "My App" }
-      - { section: newrelic, option: logfile, value: "/var/log/newrelic/php_agent.log" }
-      - { section: newrelic, option: daemon.logfile, value: "/var/log/newrelic/newrelic-daemon.log" }
+    php5_newrelic_appname: "My App"
