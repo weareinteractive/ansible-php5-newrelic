@@ -4,6 +4,7 @@
   sudo: yes
   roles:
     - franklinkim.apt
+    - franklinkim.newrelic
     - franklinkim.php5-newrelic
   vars:
     apt_repositories:

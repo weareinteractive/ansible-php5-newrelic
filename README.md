@@ -36,7 +36,7 @@ $ git clone https://github.com/weareinteractive/ansible-php5-newrelic.git frankl
 
 * Ansible >= 1.9
 * PHP (i.e. [franklinkim.php5](https://galaxy.ansible.com/list#/roles/1401))
-* Installed Newrelic server agent (i.e. [franklinkim.newrelic]())
+* Installed Newrelic server agent (i.e. [franklinkim.newrelic](https://galaxy.ansible.com/list#/roles/3917))
 
 ## Variables
 

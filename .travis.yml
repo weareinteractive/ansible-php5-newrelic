@@ -9,7 +9,7 @@ install:
   - pip install ansible
   - ansible-galaxy install franklinkim.apt
   - ansible-galaxy install franklinkim.php5
-  - ansible-galaxy install sivel.newrelic
+  - ansible-galaxy install franklinkim.newrelic
 script:
   - echo localhost > inventory
   - ln -s ansible-php5-newrelic ../franklinkim.php5-newrelic
