@@ -1,7 +1,4 @@
 ---
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
-#
 # newrelic_license_key: yourkey
 
 # Sets the name of the file to send log messages to.
@@ -16,3 +13,5 @@ php5_newrelic_daemon_loglevel: info
 php5_newrelic_high_security: no
 # Sets the name of the application that metrics will be reported into.
 php5_newrelic_appname: myapp
+# Sets the desination location of the newrelic.ini file
+php5_newrelic_config_dest: /etc/php5/mods-available
