@@ -4,6 +4,7 @@
   roles:
     - weareinteractive.apt
     - franklinkim.newrelic
+    - franklinkim.php5
     - franklinkim.php5-newrelic
   vars:
     apt_repositories:
