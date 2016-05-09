@@ -56,6 +56,8 @@ php5_newrelic_daemon_loglevel: info
 php5_newrelic_high_security: no
 # Sets the name of the application that metrics will be reported into.
 php5_newrelic_appname: myapp
+# Sets the desination location of the newrelic.ini file
+php5_newrelic_config_dest: /etc/php5/mods-available
 
 ```
 
@@ -71,6 +73,7 @@ This is an example playbook:
   roles:
     - weareinteractive.apt
     - franklinkim.newrelic
+    - franklinkim.php5
     - franklinkim.php5-newrelic
   vars:
     apt_repositories:
