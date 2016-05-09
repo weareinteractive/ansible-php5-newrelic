@@ -1,17 +1,17 @@
 ---
-
-language: python
+language: phyton
 python: "2.7"
+
+sudo: required
+
+services:
+  - docker
+
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq python-apt python-pycurl grep
-install:
-  - pip install ansible
-  - ansible-galaxy install franklinkim.apt
-  - ansible-galaxy install franklinkim.php5
-  - ansible-galaxy install franklinkim.newrelic
+  - docker pull williamyeh/ansible:ubuntu14.04
+
 script:
-  - echo localhost > inventory
-  - ln -s ansible-php5-newrelic ../franklinkim.php5-newrelic
-  - ansible-playbook --syntax-check -i inventory test.yml
-  - ansible-playbook -i inventory test.yml --connection=local --sudo -vvvv 2> /dev/null | tee
+  - make test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
