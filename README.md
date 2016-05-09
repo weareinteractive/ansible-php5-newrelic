@@ -68,9 +68,8 @@ This is an example playbook:
 ---
 
 - hosts: all
-  sudo: yes
   roles:
-    - franklinkim.apt
+    - weareinteractive.apt
     - franklinkim.newrelic
     - franklinkim.php5-newrelic
   vars:
