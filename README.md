@@ -57,6 +57,7 @@ php5_newrelic_high_security: no
 # Sets the name of the application that metrics will be reported into.
 php5_newrelic_appname: myapp
 # Sets the desination location of the newrelic.ini file
+# Note: for php7 it's /etc/php/7.0/mods-available
 php5_newrelic_config_dest: /etc/php5/mods-available
 
 ```
