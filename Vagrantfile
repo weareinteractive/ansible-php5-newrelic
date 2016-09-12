@@ -9,6 +9,10 @@ Vagrant.configure("2") do |config|
     instance.vm.box = 'ubuntu/trusty64'
   end
 
+  config.vm.define 'xenial' do |instance|
+    instance.vm.box = 'ubuntu/xenial64'
+  end
+
   # View the documentation for the provider you're using for more
   # information on available options.
   config.vm.provision "ansible" do |ansible|
