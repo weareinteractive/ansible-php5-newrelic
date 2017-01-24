@@ -43,6 +43,8 @@ Here is a list of all the default variables for this role, which are also availa
 ```yaml
 ---
 # newrelic_license_key: yourkey
+# php5_newrelic_extra_config:
+#   newrelic.enabled: true
 
 # Sets the name of the file to send log messages to.
 php5_newrelic_logfile: /var/log/newrelic/php_agent.log
@@ -60,7 +62,7 @@ php5_newrelic_appname: myapp
 # Note: for php7 it's /etc/php/7.0/mods-available
 php5_newrelic_config_dest: /etc/php5/mods-available
 # Writes other config options to newrelic.ini.
-php5_newrelic_extra_config: []
+php5_newrelic_extra_config: {}
 
 ```
 
@@ -73,6 +75,7 @@ This is an example playbook:
 ---
 
 - hosts: all
+  become: yes
   roles:
     - weareinteractive.apt
     - franklinkim.newrelic
@@ -83,6 +86,8 @@ This is an example playbook:
       - 'ppa:ondrej/php5-oldstable'
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
     php5_newrelic_appname: "My App"
+    php5_newrelic_extra_config:
+      newrelic.enabled: true
 
 ```
 
