@@ -12,4 +12,4 @@
   lineinfile:
     path: "{{ php5_newrelic_config_dest }}/newrelic.ini"
     line: "{{ item }}"
-  with: "{{ php5_newrelic_extra_config }}"
+  with_items: "{{ php5_newrelic_extra_config }}"
