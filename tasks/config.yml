@@ -7,3 +7,9 @@
     owner: "root"
     group: "root"
     mode: "0644"
+
+- name: Add additional config options to `newrelic.ini`.
+  lineinfile:
+    path: "{{ php5_newrelic_config_dest }}/newrelic.ini"
+    line: "{{ item }}"
+  with: "{{ php5_newrelic_extra_config }}"
