@@ -1,3 +1,13 @@
+<a name="1.3.0"></a>
+## 1.3.0 (2017-01-24)
+
+
+#### Features
+
+*   add extra config variables ([470b8dda](https://github.com/weareinteractive/ansible-php5-newrelic/commit/470b8dda43673170c41fef09f5cf65ec3ba89444))
+
+
+
 <a name="1.2.1"></a>
 ### 1.2.1 (2016-07-13)
 
