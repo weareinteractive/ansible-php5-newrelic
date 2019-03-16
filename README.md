@@ -83,7 +83,7 @@ This is an example playbook:
     - franklinkim.php5-newrelic
   vars:
     apt_repositories:
-      - 'ppa:ondrej/php5-oldstable'
+      - repo: 'ppa:ondrej/php5-oldstable'
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
     php5_newrelic_appname: "My App"
     php5_newrelic_extra_config:
