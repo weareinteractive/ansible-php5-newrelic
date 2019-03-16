@@ -1,3 +1,13 @@
+<a name="1.3.1"></a>
+### 1.3.1 (2019-03-16)
+
+
+#### Features
+
+*   update iteritems with items ([4d2497a8](https://github.com/weareinteractive/ansible-php5-newrelic/commit/4d2497a8a5e179696a6d8d6d50bc2b1203660c31))
+
+
+
 <a name="1.3.0"></a>
 ## 1.3.0 (2017-01-24)
 
