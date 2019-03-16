@@ -668,6 +668,6 @@ newrelic.daemon.loglevel = "{{ php5_newrelic_daemon_loglevel }}"
 ;newrelic.synthetics.enabled = true
 
 ; Extra settings through php5_newrelic_extra_config
-{% for key, value in php5_newrelic_extra_config.iteritems() %}
+{% for key, value in php5_newrelic_extra_config.items() %}
 {{ key }} = {{ value | to_nice_json }}
 {% endfor %}
