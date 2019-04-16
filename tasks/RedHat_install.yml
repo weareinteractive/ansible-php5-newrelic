@@ -1,0 +1,11 @@
+---
+
+- name: Add repository
+  yum:
+    name: http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
+    state: present
+
+- name: install newrelic agent
+  yum:
+    name: newrelic-php5
+    state: latest
