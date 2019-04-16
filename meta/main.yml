@@ -64,9 +64,9 @@ galaxy_info:
   #  - 12.3
   #  - 13.1
   #  - 13.2
-  #- name: Amazon
-  #  versions:
-  #  - all
+  - name: Amazon
+    versions:
+    - all
   #  - 2013.03
   #  - 2013.09
   #- name: GenericBSD
