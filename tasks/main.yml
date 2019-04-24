@@ -18,3 +18,10 @@
     - php5-newrelic
     - config
     - php5-newrelic-config
+
+- include: restart.yml
+  tags:
+    - monitoring
+    - php5-newrelic
+    - config
+    - php5-newrelic-config

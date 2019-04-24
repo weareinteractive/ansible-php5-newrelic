@@ -1,4 +1,7 @@
 ---
 
-- name: check for OS Family
-  include_task: '{{ playbook_dir }}/tasks/{{ ansible_os_family }}_install.yml'
+- import_tasks: 'RedHat-install.yml'
+  when: ansible_os_family == 'RedHat'
+
+- import_tasks: 'Debian-install.yml'
+  when: ansible_os_family == 'Debian'
