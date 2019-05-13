@@ -102,7 +102,6 @@ galaxy_info:
   # alphanumeric characters. Maximum 20 tags per role.
   galaxy_tags:
     - monitoring
-    - php5-newrelic
     - newrelic
     - php5
     - php
