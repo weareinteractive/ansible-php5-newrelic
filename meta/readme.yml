@@ -12,3 +12,7 @@ description: |
   > * configures newrelic php agent
   >
   > Note: Tests are failing due to invalid key
+after_dependencies: |
+  **Note:**
+
+  > Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.php5-newrelic` to `weareinteractive.php5-newrelic`!
