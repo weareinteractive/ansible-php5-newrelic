@@ -30,8 +30,8 @@ script:
   - docker exec -t "$(cat ${container_id})" env TERM=xterm ansible --version
 
   # Install dependencies
-  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'apt-get update && apt-get install -y build-essential ca-certificates'
-  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'ansible-galaxy install weareinteractive.apt weareinteractive.php5 franklinkim.newrelic'
+  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'apt-get update && apt-get install -y build-essential'
+  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'ansible-galaxy install -c weareinteractive.apt weareinteractive.php5 franklinkim.newrelic'
 
   # Ansible syntax check.
   - 'docker exec -t "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/${role}/tests/main.yml --syntax-check'
