@@ -3,14 +3,11 @@
   become: yes
   roles:
     - weareinteractive.apt
+    - weareinteractive.php5
     - franklinkim.newrelic
-    - franklinkim.php5
     - weareinteractive.php5-newrelic
   vars:
-    apt_repositories:
-      - repo: "ppa:ondrej/php"
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
     php5_newrelic_appname: "My App"
     php5_newrelic_extra_config:
       newrelic.enabled: true
-    php5_log_path: /tmp

@@ -8,11 +8,11 @@ env:
     - role: weareinteractive.php5-newrelic
   matrix:
     - distribution: Ubuntu
-      distribution_version: "16.04"
-      init: /lib/systemd/systemd
-      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    - distribution: Ubuntu
       distribution_version: "14.04"
+      init: /sbin/init
+      run_opts: ""
+    - distribution: Ubuntu
+      distribution_version: "12.04"
       init: /sbin/init
       run_opts: ""
 
@@ -30,14 +30,14 @@ script:
   - docker exec -t "$(cat ${container_id})" env TERM=xterm ansible --version
 
   # Install dependencies
-  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'apt-get update && apt-get install -y software-properties-common ca-certificates'
-  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'ansible-galaxy install -c weareinteractive.apt franklinkim.php5 franklinkim.newrelic'
+  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'apt-get update && apt-get install -y build-essential'
+  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'ansible-galaxy install -c weareinteractive.apt weareinteractive.php5 franklinkim.newrelic'
 
   # Ansible syntax check.
   - 'docker exec -t "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/${role}/tests/main.yml --syntax-check'
 
   # Test role.
-  - 'docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/${role}/tests/main.yml'
+  - 'docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/${role}/tests/main.yml'
 
   # Test Idempotence
   - idempotence=$(mktemp)
