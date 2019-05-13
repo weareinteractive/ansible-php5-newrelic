@@ -34,7 +34,10 @@ $ git clone https://github.com/weareinteractive/ansible-php5-newrelic.git wearei
 
 ## Dependencies
 
-* Ansible >= 2.0
+* Ansible >= 2.4
+**Note:**
+
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.php5-newrelic` to `weareinteractive.php5-newrelic`!
 
 ## Variables
 
@@ -77,16 +80,15 @@ This is an example playbook:
   become: yes
   roles:
     - weareinteractive.apt
-    - weareinteractive.newrelic
     - weareinteractive.php5
+    - franklinkim.newrelic
     - weareinteractive.php5-newrelic
   vars:
-    apt_repositories:
-      - repo: "ppa:ondrej/php5-oldstable"
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
     php5_newrelic_appname: "My App"
     php5_newrelic_extra_config:
       newrelic.enabled: true
+    php5_newrelic_config_dest: "{{ php5_module_path }}"
 
 ```
 
