@@ -30,6 +30,7 @@ script:
   - docker exec -t "$(cat ${container_id})" env TERM=xterm ansible --version
 
   # Install dependencies
+  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'apt-get install -y ca-certificates'
   - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'ansible-galaxy install -c weareinteractive.apt franklinkim.php5 franklinkim.newrelic'
 
   # Ansible syntax check.
