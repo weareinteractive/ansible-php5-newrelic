@@ -1,3 +1,13 @@
+<a name="1.4.1"></a>
+### 1.4.1 (2019-05-13)
+
+
+#### Bug Fixes
+
+*   lint errors ([9c159bc0](https://github.com/weareinteractive/ansible-php5-newrelic/commit/9c159bc0f97764d90319a2f9851b17827c08701d))
+
+
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2019-05-13)
 
