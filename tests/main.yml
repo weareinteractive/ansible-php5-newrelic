@@ -3,8 +3,8 @@
   become: yes
   roles:
     - weareinteractive.apt
-    - weareinteractive.newrelic
-    - weareinteractive.php5
+    - franklinkim.newrelic
+    - franklinkim.php5
     - weareinteractive.php5-newrelic
   vars:
     apt_repositories:
