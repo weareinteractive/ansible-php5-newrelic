@@ -5,17 +5,16 @@ services:
   - docker
 env:
   global:
-    - role: weareinteractive.users_git
+    - role: weareinteractive.php5-newrelic
   matrix:
     - distribution: Ubuntu
       distribution_version: "16.04"
       init: /lib/systemd/systemd
       run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    # currently disabled due to https://github.com/ansible/galaxy/issues/795
-    # - distribution: Ubuntu
-    #   distribution_version: "14.04"
-    #   init: /sbin/init
-    #   run_opts: ""
+    - distribution: Ubuntu
+      distribution_version: "14.04"
+      init: /sbin/init
+      run_opts: ""
 
 before_install:
   - sudo apt-get update
