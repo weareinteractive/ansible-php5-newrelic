@@ -8,5 +8,3 @@
 - include: install.yml
 
 - include: config.yml
-
-- include: restart.yml
