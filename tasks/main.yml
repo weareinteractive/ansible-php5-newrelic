@@ -6,22 +6,7 @@
   when: not newrelic_license_key|default(False)
 
 - include: install.yml
-  tags:
-    - monitoring
-    - php5-newrelic
-    - install
-    - php5-newrelic-install
 
 - include: config.yml
-  tags:
-    - monitoring
-    - php5-newrelic
-    - config
-    - php5-newrelic-config
 
 - include: restart.yml
-  tags:
-    - monitoring
-    - php5-newrelic
-    - config
-    - php5-newrelic-config
