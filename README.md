@@ -1,11 +1,11 @@
-# Ansible franklinkim.php5-newrelic role
+# Ansible weareinteractive.php5_newrelic role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-php5-newrelic.svg)](https://travis-ci.org/weareinteractive/ansible-php5-newrelic)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.php5-newrelic-blue.svg)](https://galaxy.ansible.com/franklinkim/php5-newrelic)
+[![Galaxy](https://img.shields.io/badge/galaxy-weareinteractive.php5_newrelic-blue.svg)](https://galaxy.ansible.com/weareinteractive/php5-newrelic)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-php5-newrelic.svg)](https://github.com/weareinteractive/ansible-php5-newrelic)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-php5-newrelic.svg)](https://github.com/weareinteractive/ansible-php5-newrelic)
 
-> `franklinkim.php5-newrelic` is an [Ansible](http://www.ansible.com) role which:
+> `weareinteractive.php5_newrelic` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs newrelic php agent
 > * configures newrelic php agent
@@ -17,24 +17,27 @@
 Using `ansible-galaxy`:
 
 ```shell
-$ ansible-galaxy install franklinkim.php5-newrelic
+$ ansible-galaxy install weareinteractive.php5_newrelic
 ```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: franklinkim.php5-newrelic
+- src: weareinteractive.php5_newrelic
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/weareinteractive/ansible-php5-newrelic.git franklinkim.php5-newrelic
+$ git clone https://github.com/weareinteractive/ansible-php5-newrelic.git weareinteractive.php5_newrelic
 ```
 
 ## Dependencies
 
-* Ansible >= 2.0
+* Ansible >= 2.4
+**Note:**
+
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.php5-newrelic` to `weareinteractive.php5-newrelic`!
 
 ## Variables
 
@@ -73,21 +76,19 @@ This is an example playbook:
 
 ```yaml
 ---
-
 - hosts: all
   become: yes
   roles:
     - weareinteractive.apt
+    - weareinteractive.php5
     - franklinkim.newrelic
-    - franklinkim.php5
-    - franklinkim.php5-newrelic
+    - weareinteractive.php5-newrelic
   vars:
-    apt_repositories:
-      - repo: 'ppa:ondrej/php5-oldstable'
     newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
     php5_newrelic_appname: "My App"
     php5_newrelic_extra_config:
       newrelic.enabled: true
+    php5_newrelic_config_dest: "{{ php5_module_path }}"
 
 ```
 
